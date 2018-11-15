@@ -1,0 +1,95 @@
+﻿body, html {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial;
+}
+section {
+    height: 120vh;
+    width: 100%;
+    padding: 3em;
+    box-sizing: border-box;
+    color: white;
+
+    h1 {
+        padding: 2em;
+        font-size: 3em;
+    }
+
+    h2 {
+        padding: 2em;
+        font-size: 2em;
+    }
+
+    h3 {
+        padding: 2em;
+        font-size: 1em;
+    }
+
+    ol > li {
+        width: 100%;
+        opacity: 0.8;
+        line-height: 1.2em;
+        font-size: 1.2em;
+    }
+
+    p {
+        width: 100%;
+        opacity: 0.8;
+        line-height: 1.5em;
+        font-size: 1.5em;
+    }
+
+    div {
+        p {
+            width: 100%;
+            opacity: 0.8;
+            line-height: 1.5em;
+            font-size: 1.4em;
+            padding: 1px;
+        }
+
+        img {
+            width: 100%;
+            opacity: 0.8;
+            height: 100vh;
+            padding: 1px;
+        }
+    }
+}
+div {
+    p {
+        width: 100%;
+        opacity: 0.8;
+        line-height: 1.5em;
+        font-size: 1.4em;
+        padding: 1px;
+    }
+    }
+
+    section:nth-of-type(1) {
+        background: rgb(29,167,103);
+    }
+
+    section:nth-of-type(2) {
+        background: rgb(37,123,180);
+    }
+
+    section:nth-of-type(3) {
+        background: rgb(111,38,179);
+    }
+
+    section:nth-of-type(4) {
+        background: rgb(142,173,39);
+    }
+
+    section:nth-of-type(5) {
+        background: rgb(165,160,20);
+    }
+
+    section:nth-of-type(6) {
+        background: rgb(185,120,0);
+    }
+
+    section:nth-of-type(7) {
+        background: rgb(205,38,180);
+    }

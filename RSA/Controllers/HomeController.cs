@@ -13,17 +13,44 @@ namespace RSA.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult एक_परिचय()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
-        public ActionResult Contact()
+        public ActionResult लक्ष्य_और_उदेश्य()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult संविधान()
+        {
+            return View();
+        }
+
+        public ActionResult संयोजक()
+        {
+            return View();
+        }
+
+        public ActionResult यात्रा()
+        {
+            return View();
+        }
+
+        public ActionResult गैलरी()
+        {
+            return View();
+        }
+
+        public ActionResult मीडिया()
+        {
+            return View();
+        }
+        public ActionResult संपर्क()
+        {
+            ViewBag.Message = "राष्ट्रीय समान अधिकार संपर्क";
             return View();
         }
     }

@@ -3,42 +3,91 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>@ViewBag.Title - राष्ट्रीय समान अधिकार </title>
+    @Styles.Render("~/content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <link rel="stylesheet" href="~/Content/bootstrap/main.scss" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+    
+    <div class="row">
+        <div class="row m-0">
+            <div class="navbar navbar-expand-lg navbar-dark bg-light thead-dark w-100  fixed-top" style="height:20px;">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4 text-right">
+                    <a class="btn btn-outline-dark " href="~/Account/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    <a class="btn btn-outline-dark" href="~/Account/Login"><span class="glyphicon glyphicon-log-in"></span> Sign IN</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mt-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">राष्ट्रीय समान अधिकार</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Home/index">
+                                पहला पन्ना
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/एक_परिचय">एक परिचय</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/लक्ष्य_और_उदेश्य">लक्ष्य और उदेश्य</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संविधान">संविधान</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/यात्रा">यात्रा</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संयोजक">संयोजक</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/मीडिया">मीडिया</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/गैलरी">गैलरी</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संपर्क">संपर्क</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        <div class="container-fluid mt-5 mb-5">
+            @RenderBody()
+        </div>
+        <div class="clearfix"></div>
+        <div class="navbar-dark bg-dark fixed-bottom container-fluid">
+            <footer class="py-1 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">@DateTime.Now.Year &copy; राष्ट्रीय समान अधिकार</p>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+
+        <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+        <script>
+            ScrollOut({
+                threshold: .5
+            });
+        </script>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>
