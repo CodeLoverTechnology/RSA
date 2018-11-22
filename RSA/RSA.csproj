@@ -267,6 +267,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="DBModels\RSA_YatriModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RSA_YatriModel.edmx</DependentUpon>
@@ -284,6 +285,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\GallaryImages\RSA_Profile_Er_RavinderSingh_1.jpg" />
+    <Content Include="Images\GallaryImages\RSA_Profile_Er_RavinderSingh_2.jpg" />
     <Content Include="Images\SliderImages\SliderRSAY_3.jpg" />
     <Content Include="Images\SliderImages\SliderRSAY_1.jpg" />
     <Content Include="Images\SliderImages\SliderRSAY_4.jpg" />
@@ -536,9 +539,7 @@
     <Content Include="Views\Shared\_SocialMedia.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\GallaryImages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />

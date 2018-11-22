@@ -7,91 +7,100 @@
     @Styles.Render("~/content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="~/Content/bootstrap/main.scss" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-<body>
+<body  data-spy="scroll" data-target=".navbar" data-offset="50">
     <div class="wrapper">
-        <div class="row">
-            <div class="row m-0">
-                <div class="navbar navbar-expand-lg navbar-dark thead-dark w-100  fixed-top" style="height:25px;background-color:#00000f">
-                    <div class="col-4">
+        @Html.Partial("_SideMenu")
+        <div class="row m-0">
+            <div class="navbar navbar-expand-lg navbar-dark thead-dark w-100  fixed-top" style="height:25px;background-color:#00000f">
+                <div class="col-4">
 
-                    </div>
-                    <div class="col-4"></div>
-                    <div class="col-4 text-right">
-                        <a class="btn btn-outline-dark text-white" href="~/Account/Register"><i class="fa fa-user-circle" aria-hidden="true"></i>Sign Up</a>
-                        <a class="btn btn-outline-dark text-white" href="~/Account/Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
-                    </div>
+                </div>
+                <div class="col-4"></div>
+                <div class="col-4 text-right">
+                    <a class="btn btn-outline-dark text-white" href="~/Account/Register"><i class="fa fa-user-circle" aria-hidden="true"></i>Sign Up</a>
+                    <a class="btn btn-outline-dark text-white" href="~/Account/Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
                 </div>
             </div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mt-4">
-                <div class="container">
-                    <a class="navbar-brand" href="#">राष्ट्रीय समान अधिकार</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="~/Home/index">
-                                    पहला पन्ना
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/एक_परिचय">एक परिचय</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/लक्ष्य_और_उदेश्य">लक्ष्य और उदेश्य</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/संविधान">संविधान</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/यात्रा">यात्रा</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/संयोजक">संयोजक</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/मीडिया">मीडिया</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/गैलरी">गैलरी</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="~/Home/संपर्क">संपर्क</a>
-                            </li>
-                        </ul>
-                    </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark bg-dark fixed-top mt-4">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+                <a class="navbar-brand" href="#">राष्ट्रीय समान अधिकार</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Home/index">
+                                पहला पन्ना
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/एक_परिचय">एक परिचय</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/लक्ष्य_और_उदेश्य">लक्ष्य और उदेश्य</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संविधान">संविधान</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/यात्रा">यात्रा</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संयोजक">संयोजक</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/मीडिया">मीडिया</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/गैलरी">गैलरी</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संपर्क">संपर्क</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-            @Html.Partial("_SideMenu")
-            <div class="container-fluid mt-5 mb-5">
-
-                @RenderBody()
             </div>
+        </nav>
+        <div id="content">
+            
+                @RenderBody()           
+
             <div class="clearfix"></div>
             <div class="navbar-dark bg-dark container-fluid mt-5 mb-5">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
                 @*@Html.Partial("_SocialMedia")*@
             </div>
             <div class="clearfix"></div>
-            <div class="navbar-dark fixed-bottom container-fluid mt-1" style="background-color:#00000f">
-                <footer class="py-1 bg-dark">
-                    <div class="container">
-                        <div class="p-1 m-1 text-center text-white" style="font-size:large;">
+            <div class="navbar-dark fixed-bottom" style="background-color:#00000f">
+                <footer class="bg-dark">
+                    @*<div class="container">*@
+                        <div class="p-1 text-center text-white" style="font-size:large;">
                             @DateTime.Now.Year &copy; राष्ट्रीय समान अधिकार
-                            <div class="bg-light float-right p-1 m-1 text-white" style="border-top-left-radius:20px;"><a href="http://codelovertechnology.com" target="_blank">Presented By : CodeLover Technology</a></div>
+                            <div class="float-right text-white p-1" style="border-top-left-radius:20px;background-color:#00000f;"><a href="http://codelovertechnology.com" target="_blank">Presented By : CodeLover Technology</a></div>
                         </div>
 
 
 
-                    </div>
+                    @*</div>*@
                     <!-- /.container -->
                 </footer>
             </div>
-
+           
             <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
             <script>
                 ScrollOut({
@@ -103,6 +112,7 @@
             @RenderSection("scripts", required: false)
         </div>
     </div>
+   
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->
@@ -110,25 +120,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            //$("#sidebar").mCustomScrollbar({
-            //    theme: "minimal"
-            //});
-
-            //$('#sidebarCollapse').on('click', function () {
-            //    // open or close navbar
-            //    $('#sidebar').toggleClass('active');
-            //    // close dropdowns
-            //    $('.collapse.in').toggleClass('in');
-            //    // and also adjust aria-expanded attributes we use for the open/closed arrows
-            //    // in our CSS
-            //    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            //});
-
-        });
-    </script>
+   
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
