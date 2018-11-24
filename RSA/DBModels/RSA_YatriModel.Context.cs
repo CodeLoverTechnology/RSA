@@ -25,5 +25,9 @@ namespace RSA.DBModels
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<M_NewsCategoryMaster> M_NewsCategoryMaster { get; set; }
+        public virtual DbSet<M_NewsSubCategoryMasters> M_NewsSubCategoryMasters { get; set; }
+        public virtual DbSet<M_RSAMasters> M_RSAMasters { get; set; }
+        public virtual DbSet<T_News_Masters> T_News_Masters { get; set; }
     }
 }

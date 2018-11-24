@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row m-5 p-5">
+    <h2>Admin Home</h2>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Masters
+            </div>
+            <div class="card-body">
+                @Html.ActionLink("RSA Masters", "Index", "RSAMasters", null, null)
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                News Category
+            </div>
+            <div class="card-body">
+                @Html.ActionLink("News Category Masters", "Index", "NewsCategoryMaster", null, null)
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                News Sub-Category
+            </div>
+            <div class="card-body">
+                @Html.ActionLink("News Sub-Category Masters", "Index", "NewsSubCategoryMasters", null, null)
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                News
+            </div>
+            <div class="card-body">
+                @Html.ActionLink("News Masters", "Index", "News_Masters", null, null)
+            </div>
+        </div>
+    </div>
+</div>
+

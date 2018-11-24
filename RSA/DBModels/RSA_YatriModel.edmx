@@ -4,20 +4,349 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RSA_YatraDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="RSA_YatraDBModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+    <Schema Namespace="RSA_YatraDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="M_NewsCategoryMaster">
+          <Key>
+            <PropertyRef Name="NewsCategoryID" />
+          </Key>
+          <Property Name="NewsCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_NewsSubCategoryMasters">
+          <Key>
+            <PropertyRef Name="NewsSubCategoryID" />
+          </Key>
+          <Property Name="NewsSubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsCategory" Type="int" Nullable="false" />
+          <Property Name="SubCategory" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_RSAMasters">
+          <Key>
+            <PropertyRef Name="RSAID" />
+          </Key>
+          <Property Name="RSAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_News_Masters">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsType" Type="int" Nullable="false" />
+          <Property Name="NewsSubCategoryID" Type="int" Nullable="false" />
+          <Property Name="NewsHeading" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubHeading" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Para1" Type="nvarchar(max)" />
+          <Property Name="Para2" Type="nvarchar(max)" />
+          <Property Name="Para3" Type="nvarchar(max)" />
+          <Property Name="Para4" Type="nvarchar(max)" />
+          <Property Name="Para5" Type="nvarchar(max)" />
+          <Property Name="Img1" Type="nvarchar(max)" />
+          <Property Name="Img2" Type="nvarchar(max)" />
+          <Property Name="Img3" Type="nvarchar(max)" />
+          <Property Name="Img4" Type="nvarchar(max)" />
+          <Property Name="Img5" Type="nvarchar(max)" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NoOfNewsViews" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster">
+          <End Role="M_NewsCategoryMaster" Type="Self.M_NewsCategoryMaster" Multiplicity="1" />
+          <End Role="M_NewsSubCategoryMasters" Type="Self.M_NewsSubCategoryMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NewsCategoryMaster">
+              <PropertyRef Name="NewsCategoryID" />
+            </Principal>
+            <Dependent Role="M_NewsSubCategoryMasters">
+              <PropertyRef Name="NewsCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_News_Masters_M_NewsSubCategoryMasters">
+          <End Role="M_NewsSubCategoryMasters" Type="Self.M_NewsSubCategoryMasters" Multiplicity="1" />
+          <End Role="T_News_Masters" Type="Self.T_News_Masters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NewsSubCategoryMasters">
+              <PropertyRef Name="NewsSubCategoryID" />
+            </Principal>
+            <Dependent Role="T_News_Masters">
+              <PropertyRef Name="NewsSubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_News_Masters_M_RSAMasters">
+          <End Role="M_RSAMasters" Type="Self.M_RSAMasters" Multiplicity="1" />
+          <End Role="T_News_Masters" Type="Self.T_News_Masters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_RSAMasters">
+              <PropertyRef Name="RSAID" />
+            </Principal>
+            <Dependent Role="T_News_Masters">
+              <PropertyRef Name="NewsType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RSA_YatraDBModelStoreContainer">
+          <EntitySet Name="M_NewsCategoryMaster" EntityType="Self.M_NewsCategoryMaster" Schema="RSAAdmin" store:Type="Tables" />
+          <EntitySet Name="M_NewsSubCategoryMasters" EntityType="Self.M_NewsSubCategoryMasters" Schema="RSAAdmin" store:Type="Tables" />
+          <EntitySet Name="M_RSAMasters" EntityType="Self.M_RSAMasters" Schema="RSAAdmin" store:Type="Tables" />
+          <EntitySet Name="T_News_Masters" EntityType="Self.T_News_Masters" Schema="RSAAdmin" store:Type="Tables" />
+          <AssociationSet Name="FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster" Association="Self.FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster">
+            <End Role="M_NewsCategoryMaster" EntitySet="M_NewsCategoryMaster" />
+            <End Role="M_NewsSubCategoryMasters" EntitySet="M_NewsSubCategoryMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_News_Masters_M_NewsSubCategoryMasters" Association="Self.FK_T_News_Masters_M_NewsSubCategoryMasters">
+            <End Role="M_NewsSubCategoryMasters" EntitySet="M_NewsSubCategoryMasters" />
+            <End Role="T_News_Masters" EntitySet="T_News_Masters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_News_Masters_M_RSAMasters" Association="Self.FK_T_News_Masters_M_RSAMasters">
+            <End Role="M_RSAMasters" EntitySet="M_RSAMasters" />
+            <End Role="T_News_Masters" EntitySet="T_News_Masters" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RSA_YatraDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="RSA_YatraDBEntities" annotation:LazyLoadingEnabled="true" />
+        <EntityContainer Name="RSA_YatraDBEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="M_NewsCategoryMaster" EntityType="RSA_YatraDBModel.M_NewsCategoryMaster" />
+          <EntitySet Name="M_NewsSubCategoryMasters" EntityType="RSA_YatraDBModel.M_NewsSubCategoryMasters" />
+          <EntitySet Name="M_RSAMasters" EntityType="RSA_YatraDBModel.M_RSAMasters" />
+          <EntitySet Name="T_News_Masters" EntityType="RSA_YatraDBModel.T_News_Masters" />
+          <AssociationSet Name="FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster" Association="RSA_YatraDBModel.FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster">
+            <End Role="M_NewsCategoryMaster" EntitySet="M_NewsCategoryMaster" />
+            <End Role="M_NewsSubCategoryMasters" EntitySet="M_NewsSubCategoryMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_News_Masters_M_NewsSubCategoryMasters" Association="RSA_YatraDBModel.FK_T_News_Masters_M_NewsSubCategoryMasters">
+            <End Role="M_NewsSubCategoryMasters" EntitySet="M_NewsSubCategoryMasters" />
+            <End Role="T_News_Masters" EntitySet="T_News_Masters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_News_Masters_M_RSAMasters" Association="RSA_YatraDBModel.FK_T_News_Masters_M_RSAMasters">
+            <End Role="M_RSAMasters" EntitySet="M_RSAMasters" />
+            <End Role="T_News_Masters" EntitySet="T_News_Masters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="M_NewsCategoryMaster">
+          <Key>
+            <PropertyRef Name="NewsCategoryID" />
+          </Key>
+          <Property Name="NewsCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_NewsSubCategoryMasters" Relationship="RSA_YatraDBModel.FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster" FromRole="M_NewsCategoryMaster" ToRole="M_NewsSubCategoryMasters" />
+        </EntityType>
+        <EntityType Name="M_NewsSubCategoryMasters">
+          <Key>
+            <PropertyRef Name="NewsSubCategoryID" />
+          </Key>
+          <Property Name="NewsSubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsCategory" Type="Int32" Nullable="false" />
+          <Property Name="SubCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_NewsCategoryMaster" Relationship="RSA_YatraDBModel.FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster" FromRole="M_NewsSubCategoryMasters" ToRole="M_NewsCategoryMaster" />
+          <NavigationProperty Name="T_News_Masters" Relationship="RSA_YatraDBModel.FK_T_News_Masters_M_NewsSubCategoryMasters" FromRole="M_NewsSubCategoryMasters" ToRole="T_News_Masters" />
+        </EntityType>
+        <EntityType Name="M_RSAMasters">
+          <Key>
+            <PropertyRef Name="RSAID" />
+          </Key>
+          <Property Name="RSAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableValue" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="T_News_Masters" Relationship="RSA_YatraDBModel.FK_T_News_Masters_M_RSAMasters" FromRole="M_RSAMasters" ToRole="T_News_Masters" />
+        </EntityType>
+        <EntityType Name="T_News_Masters">
+          <Key>
+            <PropertyRef Name="NewsID" />
+          </Key>
+          <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsType" Type="Int32" Nullable="false" />
+          <Property Name="NewsSubCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="NewsHeading" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubHeading" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Para1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Para2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Para3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Para4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Para5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Img5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="M_NewsSubCategoryMasters" Relationship="RSA_YatraDBModel.FK_T_News_Masters_M_NewsSubCategoryMasters" FromRole="T_News_Masters" ToRole="M_NewsSubCategoryMasters" />
+          <NavigationProperty Name="M_RSAMasters" Relationship="RSA_YatraDBModel.FK_T_News_Masters_M_RSAMasters" FromRole="T_News_Masters" ToRole="M_RSAMasters" />
+          <Property Name="NoOfNewsViews" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_M_NewsSubCategoryMasters_M_NewsCategoryMaster">
+          <End Type="RSA_YatraDBModel.M_NewsCategoryMaster" Role="M_NewsCategoryMaster" Multiplicity="1" />
+          <End Type="RSA_YatraDBModel.M_NewsSubCategoryMasters" Role="M_NewsSubCategoryMasters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NewsCategoryMaster">
+              <PropertyRef Name="NewsCategoryID" />
+            </Principal>
+            <Dependent Role="M_NewsSubCategoryMasters">
+              <PropertyRef Name="NewsCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_News_Masters_M_NewsSubCategoryMasters">
+          <End Type="RSA_YatraDBModel.M_NewsSubCategoryMasters" Role="M_NewsSubCategoryMasters" Multiplicity="1" />
+          <End Type="RSA_YatraDBModel.T_News_Masters" Role="T_News_Masters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_NewsSubCategoryMasters">
+              <PropertyRef Name="NewsSubCategoryID" />
+            </Principal>
+            <Dependent Role="T_News_Masters">
+              <PropertyRef Name="NewsSubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_News_Masters_M_RSAMasters">
+          <End Type="RSA_YatraDBModel.M_RSAMasters" Role="M_RSAMasters" Multiplicity="1" />
+          <End Type="RSA_YatraDBModel.T_News_Masters" Role="T_News_Masters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_RSAMasters">
+              <PropertyRef Name="RSAID" />
+            </Principal>
+            <Dependent Role="T_News_Masters">
+              <PropertyRef Name="NewsType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RSA_YatraDBModelStoreContainer" CdmEntityContainer="RSA_YatraDBEntities" />
+        <EntityContainerMapping StorageEntityContainer="RSA_YatraDBModelStoreContainer" CdmEntityContainer="RSA_YatraDBEntities" >
+          <EntitySetMapping Name="M_NewsCategoryMaster">
+            <EntityTypeMapping TypeName="RSA_YatraDBModel.M_NewsCategoryMaster">
+              <MappingFragment StoreEntitySet="M_NewsCategoryMaster">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="NewsCategoryID" ColumnName="NewsCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_NewsSubCategoryMasters">
+            <EntityTypeMapping TypeName="RSA_YatraDBModel.M_NewsSubCategoryMasters">
+              <MappingFragment StoreEntitySet="M_NewsSubCategoryMasters">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="NewsCategory" ColumnName="NewsCategory" />
+                <ScalarProperty Name="NewsSubCategoryID" ColumnName="NewsSubCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_RSAMasters">
+            <EntityTypeMapping TypeName="RSA_YatraDBModel.M_RSAMasters">
+              <MappingFragment StoreEntitySet="M_RSAMasters">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="TableValue" ColumnName="TableValue" />
+                <ScalarProperty Name="RSAID" ColumnName="RSAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_News_Masters">
+            <EntityTypeMapping TypeName="RSA_YatraDBModel.T_News_Masters">
+              <MappingFragment StoreEntitySet="T_News_Masters">
+                <ScalarProperty Name="NoOfNewsViews" ColumnName="NoOfNewsViews" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Img5" ColumnName="Img5" />
+                <ScalarProperty Name="Img4" ColumnName="Img4" />
+                <ScalarProperty Name="Img3" ColumnName="Img3" />
+                <ScalarProperty Name="Img2" ColumnName="Img2" />
+                <ScalarProperty Name="Img1" ColumnName="Img1" />
+                <ScalarProperty Name="Para5" ColumnName="Para5" />
+                <ScalarProperty Name="Para4" ColumnName="Para4" />
+                <ScalarProperty Name="Para3" ColumnName="Para3" />
+                <ScalarProperty Name="Para2" ColumnName="Para2" />
+                <ScalarProperty Name="Para1" ColumnName="Para1" />
+                <ScalarProperty Name="SubHeading" ColumnName="SubHeading" />
+                <ScalarProperty Name="NewsHeading" ColumnName="NewsHeading" />
+                <ScalarProperty Name="NewsSubCategoryID" ColumnName="NewsSubCategoryID" />
+                <ScalarProperty Name="NewsType" ColumnName="NewsType" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

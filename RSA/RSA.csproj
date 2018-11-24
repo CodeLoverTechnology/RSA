@@ -214,6 +214,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\RSACommonFunctions.cs" />
+    <Compile Include="App_GlobalResources\RSAResourcesAdmin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RSAResourcesAdmin.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -227,6 +233,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsCategoryMasterController.cs" />
+    <Compile Include="Controllers\NewsSubCategoryMastersController.cs" />
+    <Compile Include="Controllers\News_MastersController.cs" />
+    <Compile Include="Controllers\RSAAdminController.cs" />
+    <Compile Include="Controllers\RSAMastersController.cs" />
+    <Compile Include="DBModels\M_NewsCategoryMaster.cs">
+      <DependentUpon>RSA_YatriModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModels\M_NewsSubCategoryMasters.cs">
+      <DependentUpon>RSA_YatriModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModels\M_RSAMasters.cs">
+      <DependentUpon>RSA_YatriModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModels\RSA_YatriModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -241,6 +261,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RSA_YatriModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBModels\T_News_Masters.cs">
+      <DependentUpon>RSA_YatriModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -538,8 +561,32 @@
     <Content Include="Views\Home\मीडिया.cshtml" />
     <Content Include="Views\Shared\_SocialMedia.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
+    <Content Include="Views\News_Masters\Create.cshtml" />
+    <Content Include="Views\News_Masters\Delete.cshtml" />
+    <Content Include="Views\News_Masters\Details.cshtml" />
+    <Content Include="Views\News_Masters\Edit.cshtml" />
+    <Content Include="Views\News_Masters\Index.cshtml" />
+    <Content Include="Views\RSAMasters\Create.cshtml" />
+    <Content Include="Views\RSAMasters\Delete.cshtml" />
+    <Content Include="Views\RSAMasters\Details.cshtml" />
+    <Content Include="Views\RSAMasters\Edit.cshtml" />
+    <Content Include="Views\RSAMasters\Index.cshtml" />
+    <Content Include="Views\NewsCategoryMaster\Create.cshtml" />
+    <Content Include="Views\NewsCategoryMaster\Delete.cshtml" />
+    <Content Include="Views\NewsCategoryMaster\Details.cshtml" />
+    <Content Include="Views\NewsCategoryMaster\Edit.cshtml" />
+    <Content Include="Views\NewsCategoryMaster\Index.cshtml" />
+    <Content Include="Views\NewsSubCategoryMasters\Create.cshtml" />
+    <Content Include="Views\NewsSubCategoryMasters\Delete.cshtml" />
+    <Content Include="Views\NewsSubCategoryMasters\Details.cshtml" />
+    <Content Include="Views\NewsSubCategoryMasters\Edit.cshtml" />
+    <Content Include="Views\NewsSubCategoryMasters\Index.cshtml" />
+    <Content Include="Views\RSAAdmin\AdminIndex.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="News\" />
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
@@ -557,6 +604,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ASPSMSX2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\RSAResourcesAdmin.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>RSAResourcesAdmin.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
