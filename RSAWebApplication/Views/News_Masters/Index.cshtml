@@ -1,0 +1,90 @@
+﻿@model IEnumerable<RSAWebApplication.DBModels.T_News_Masters>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row m-5 p-5">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.M_RSAMasters.TableValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.M_NewsSubCategoryMasters.SubCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsHeading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubHeading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Para1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Img1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M_RSAMasters.TableValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.M_NewsSubCategoryMasters.SubCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NewsHeading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubHeading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Para1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Img1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NewsID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NewsID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NewsID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

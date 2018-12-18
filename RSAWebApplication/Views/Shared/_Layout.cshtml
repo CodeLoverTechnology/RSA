@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - राष्ट्रीय समान अधिकार </title>
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*<link rel="stylesheet" href="~/Content/main.scss" />*@
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!-- Font Awesome JS -->
+    @*<script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>*@
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+    <div class="wrapper">
+        @Html.Partial("_SideMenu")
+        <div class="row m-0">
+            <div class="navbar navbar-expand-lg navbar-dark thead-dark w-100  fixed-top" style="height:25px;background-color:#00000f">
+                <div class="col-4">
+                        @Html.Partial("_SocialMedia")
+                   </div>
+                <div class="col-4"></div>
+                <div class="col-4 text-right">
+                    <a class="btn btn-outline-dark text-white" href="~/Home/Register"><i class="fa fa-user-circle" aria-hidden="true"></i>Sign Up</a>
+                    <a class="btn btn-outline-dark text-white" href="~/Home/Login"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-inverse navbar-dark bg-dark fixed-top mt-4">
+            <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto mr-5" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="navbar-toggler-icon"></i>
+                </button>
+                <a class="navbar-brand" href="~/Home/index">राष्ट्रीय समान अधिकार</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="~/Home/index">
+                                पहला पन्ना
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/एक_परिचय">एक परिचय</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/लक्ष्य_और_उदेश्य">लक्ष्य और उदेश्य</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संविधान">संविधान</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/यात्रा">यात्रा</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संयोजक">संयोजक</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/मीडिया">मीडिया</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/गैलरी">गैलरी</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Home/संपर्क">संपर्क</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="content">
+
+            @RenderBody()
+
+            <div class="clearfix"></div>
+            @*<div class="navbar-dark bg-dark container-fluid mt-1 mb-5 shadow">                
+                <div class="top-footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fksakshiwrites%2F?ti=as&amp;tabs=timeline&amp;width=300&amp;height=390&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId" width="100%" height="390" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="timeline-head">
+                                    <h2>Tweets by ‎SakshiK_author</h2>
+                                </div>
+                                <div class="timeline-Body">
+                                    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-timeline twitter-timeline-rendered" style="position: static; visibility: visible; display: inline-block; width: 100%; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px; height: 5511.19px;" data-widget-id="profile:SakshiK_author" title="Twitter Timeline"></iframe>
+                                    <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div style="max-height:390px; overflow:auto;">
+                                    <!-- InstaWidget -->
+                                    <a href="https://instawidget.net/v/user/ksakshiwrites" id="link-ce09c9deec4192e907215f8f4d467969c775e3f02183960a839548b185a70080" style="display: none;">Writes Sakshi</a>
+                                    <script src="https://instawidget.net/js/instawidget.js?u=ce09c9deec4192e907215f8f4d467969c775e3f02183960a839548b185a70080&amp;width=100%"></script><iframe id="ce09c9deec4192e907215f8f4d467969c775e3f02183960a839548b185a70080" style="border: 0px; width: 100%; height: 462px; margin: 0px; padding: 0px;" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=ce09c9deec4192e907215f8f4d467969c775e3f02183960a839548b185a70080"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div style="max-height:390px; overflow:auto;">
+                                    <!-- Place this tag where you want the widget to render. -->
+                                    <div id="___person_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 300px; height: 391px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 391px;" tabindex="0" vspace="0" width="100%" id="I0_1544985634209" name="I0_1544985634209" src="https://apis.google.com/_/widget/render/person?usegapi=1&amp;href=https%3A%2F%2Fplus.google.com%2F111998515098973617312&amp;rel=author&amp;origin=http%3A%2F%2Fwritersakshikiran.rajinfotechs.com&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.0q91--D8Poo.O%2Fam%3DQQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMIDKW6NaIQbAOynJGMocYUoHZoDg%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1544985634209&amp;_gfid=I0_1544985634209&amp;parent=http%3A%2F%2Fwritersakshikiran.rajinfotechs.com&amp;pfname=&amp;rpctoken=11731615" data-gapiattached="true" title="+Badge"></iframe></div>
+
+                                    <!-- Place this tag after the last widget tag. -->
+                                    <script type="text/javascript">
+                                        (function () {
+                                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                            po.src = 'https://apis.google.com/js/platform.js';
+                                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                        })();
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="mrg">
+                                    <h3>CONTACT US</h3>
+                                    <hr>
+                                    <div style="margin:0px 0px 0px 0px;">
+
+                                        <p><img src="/Content/images/Messages.png" style="width:20px;"> <a href="#">sakshi.kiran1994@gmail.com</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-12">
+                                <div class="mrg">
+                                    <h3>FOLLOW US</h3>
+                                    <hr>
+                                    <div class="social_list">
+                                        <a href="https://www.facebook.com/ksakshiwrites/?ti=as" target="_blank"><img src="/Content/images/facebook.png"></a>
+                                        <a href="https://plus.google.com/+SakshiKiran_Author" target="_blank"><img src="/Content/images/google_plus.png"></a>
+                                        <a href="https://twitter.com/SakshiK_author" target="_blank"><img src="/Content/images/twitter.png"></a>
+                                        <a href="https://ksakshiwrites.blogspot.in/" target="_blank"><img src="/Content/images/blog.png"></a>
+                                        <a href="https://www.amazon.in/9-Yards-Silk-Sakshi-Kiran/dp/9384315788/ref=sr_1_1?ie=UTF8&amp;qid=1514259116&amp;sr=8-1&amp;keywords=9+yards+of+silk+book" target="_blank">
+                                            <img src="/Content/images/amazon.png">
+                                        </a>
+                                        <a href="https://www.goodreads.com/book/show/37643023-9-yards-of-silk" target="_blank"><img src="/Content/images/goodreads_icon.png"></a>
+                                        <a href="https://www.instagram.com/ksakshiwrites/" target="_blank"><img src="/Content/images/instagram_icon.png"></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+            <div class="clearfix"></div>
+            <div class="navbar-dark fixed-bottom" style="background-color:#00000f">
+                <footer class="bg-dark p-1">
+                    <div class="row text-center text-white">
+                        <div class="col-4 col-md-4 col-sm-12 font-weight-bold">@DateTime.Now.Year &copy; राष्ट्रीय समान अधिकार</div>
+                        <div  class="col-4 col-md-4 col-sm-12">@Html.Partial("_SocialMedia")</div>
+                        <div class="col-4 col-md-4 col-sm-12"><div class="float-right text-white p-2" style="border-top-left-radius:20px;background-color:#00000f;margin-right:-5px;"><a href="http://codelovertechnology.com" target="_blank">Presented By : CodeLover Technology</a></div></div>
+                    </div>
+                  </footer>
+            </div>
+
+            <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+            <script>
+                ScrollOut({
+                    threshold: .5
+                });
+            </script>
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

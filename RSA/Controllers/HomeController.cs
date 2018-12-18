@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RSA.DBModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace RSA.Controllers
 {
     public class HomeController : Controller
     {
+        private RSA_YatraDBEntities db = new RSA_YatraDBEntities();
         public ActionResult Index()
         {
             return View();
@@ -36,7 +38,8 @@ namespace RSA.Controllers
 
         public ActionResult यात्रा()
         {
-            return View();
+            var NewsList = db.T_News_Masters.OrderByDescending(x => x.NewsID).Take(25);
+            return View(NewsList);
         }
 
         public ActionResult गैलरी()
@@ -54,6 +57,11 @@ namespace RSA.Controllers
             return View();
         }
 
-
+        public ActionResult NewsDetails(int? id)
+        {
+            int NewsID = Convert.ToInt32(id);
+            T_News_Masters t_News_Masters = db.T_News_Masters.Where(x=>x.NewsID == NewsID).FirstOrDefault();
+            return View(t_News_Masters);
+        }
     }
 }

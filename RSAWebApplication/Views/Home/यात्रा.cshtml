@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RSAWebApplication.DBModels.T_News_Masters>
+@{
+    ViewBag.Title = "यात्रा : एक परिचय";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row mt-5 pt-5">
+    <section data-scroll>
+        <h2 data-scroll class="h2 text-right">यात्रा : एक परिचय </h2>
+        <hr />
+        <p data-scroll class="text-justify">राष्ट्रीय समान अधिकार यात्रा, बिहार से भारत की सामाजिक व राजनैतिक परिवर्त्तन की एक बहुत महत्त्वपूर्ण नींव रखी गई हैं। आने वाले कुछ चंद महिनों में ही बिहार में एक अलग प्रकार की राजनैतिक व सामाजिक बदलाव की नींव के साथ-साथ बदलाव नजर आएगी। राष्ट्रीय समान अधिकार का मुख्य उद्देश्य बिहार से एकबार फिर लोकतंत्र की मजबूती का प्रयास और अंतिम व्यक्ति को भारतीयता पर पूर्णरूपेण गर्व हो।</p>
+    </section>
+
+    <div class="clearfix"></div>
+    <div class="row">
+        @foreach (var s in Model)
+        {
+            <a href="~/Home/NewsDetails/@s.NewsID" target="_blank">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="w-100  m-2 p-2 text-white bg-info rounded">
+                        @s.NewsHeading
+                        <hr />
+                        <div class="img-thumbnail">
+                            <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+s.Img1)" style="height:150px; width:100%;" class="img-fluid" />
+                        </div>
+                        <div class="bg-dark p-0 img-thumbnail">
+                            <div class="row">
+                                <div class="col-4 col-md-4 col-sm-12">@s.ModifiedDate</div>
+                                <div class="col-4 col-md-4 col-sm-12">@s.Location</div>
+                                <div class="col-4 col-md-4 col-sm-12">@s.NoOfNewsViews</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+    <div class="clearfix"></div>
+    <section data-scroll>
+        <h2 data-scroll class="h2 text-right">राष्ट्रीय समान अधिकार एक व्यापक सोच़ हैं राष्ट्र निर्माण का</h2>
+        <hr />
+        <p data-scroll class="text-justify">आज भारत में संवैधानिक रूप से भारतीयों को अलग-थलग कर राजनेता अपनी राजनीति सेंक रहे हैं। जिसका परिणाम ही है कि भारत में जातिवाद, धर्मवाद, क्षेत्रवाद, भाषावाद, ऊँच-नीच के भागों में बाँटकर अखंड टुकड़े कर दिये गये हैं। भारत में आज की राजनीति निरंतरता के साथ बदल रहा हैं, कभी हिंदू-मुस्लिम, सवर्ण-दलित, सामान्य-अल्पसंख्यक ना जाने कितने विचारों को अपने में समाहित कर रखा गया है।</p>
+    </section>
+
+    <section data-scroll>
+        <h2 data-scroll class="h2 text-right">राजनीतिक दलों द्वारा सर्वोच्च न्यायालय की भी बातें मानवीय संवेदना</h2>
+        <hr />
+        <p data-scroll class="text-justify">जहाँ आज भारत के सदनों में बैठे राजनीतिक दलों द्वारा सर्वोच्च न्यायालय की भी बातें मानवीय संवेदना के लिए भी नहीं मानी। वहीं भारत के 85% - 90% आबादी पर काला कानून लगाकर, भारत में अँग्रेजी हुकूमत की याद ताजा कर दिया। बड़े-बुजुर्गों का कहना हैं कि अंग्रेजों द्वारा शासन की व्यवस्था थी, पर आज सत्ता की व्यवस्था में मदमस्त हैं।</p>
+    </section>  
+</div>

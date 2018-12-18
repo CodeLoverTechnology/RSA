@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RSAWebApplication.DBModels.M_BannerMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row m-5 p-5">
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerHeader)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerImagesPath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerSequence)
+            </th>
+          
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BannerHeader)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BannerText)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BannerImagesPath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BannerSequence)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BannerID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.BannerID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BannerID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="~/Content/style.css">
     <link href="~/Content/Site.css" rel="stylesheet" />
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+
 </head>
 <body  data-spy="scroll" data-target=".navbar" data-offset="50">
     <div class="wrapper">
@@ -83,6 +85,35 @@
             <div class="clearfix"></div>
             <div class="navbar-dark bg-dark container-fluid mt-5 mb-5">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
+                <footer id="SocialSite">
+                    <div class="text-center">
+                        <span><i class="fa fa-facebook"></i></span>
+                        <span><i class="fa fa-twitter"></i></span>
+                        <span><i class="fa fa-google"></i></span>
+                        <span><i class="fa fa-linkedin"></i></span>
+                        <span><i class="fa fa-pinterest"></i></span>
+                    </div>
+                </footer>
+
+
+
+                <style>
+                    #SocialSite span {
+                        list-style: none;
+                        padding: 9px;
+                        transition: .6s;
+                        color: white;
+                        position: relative;
+                        font-size: 30px;
+                    }
+
+
+                        #SocialSite span i:hover {
+                            transform: rotate(360deg) scale(1.15);
+                            transition: 1s;
+                        }
+                </style>
+
                 @*@Html.Partial("_SocialMedia")*@
             </div>
             <div class="clearfix"></div>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<RSAWebApplication.DBModels.M_BannerMaster>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        @{
+            int i = 0;
+            foreach (var BannerDetails in Model)
+            {
+                var imgpath = (Resources.RSAResourcesAdmin.ShowBannerImagesPath + BannerDetails.BannerImagesPath).Replace(@"\", "/");
+                if (i == 0)
+                {
+        <div class="carousel-item active" style="background-image: url('@imgpath')">
+            <div class="carousel-caption d-none d-md-block bg-secondary">
+                <h3>@BannerDetails.BannerHeader</h3>
+                <p>@BannerDetails.BannerText</p>
+            </div>
+        </div>
+                    i++;
+                }
+                else
+                {
+                    
+        <div class="carousel-item" style="background-image: url('@imgpath')">
+            <div class="carousel-caption d-none d-md-block bg-secondary">
+                <h3>@BannerDetails.BannerHeader</h3>
+                <p>@BannerDetails.BannerText</p>
+            </div>
+        </div>
+            }
+        }
+        }
+        @*<div class="carousel-item active" style="background-image: url('/Images/SliderImages/SliderRSAY_1.jpg')">
+            <div class="carousel-caption d-none d-md-block bg-secondary">
+                <h3>राष्ट्रीय समान अधिकार यात्रा, बिहार का पदयात्रा</h3>
+                <p>राष्ट्रीय समान अधिकार यात्रा का पदयात्रा 02 अक्टूबर 2018 को मोतिहारी के गाँधी संग्रहालय से प्रारंभ कर गाँधी स्मारक तक किया गया। इस पदयात्रा का नेतृत्व राष्ट्रीय समान अधिकार यात्रा के राष्ट्रीय संयोजक ई. रविन्द्र कुमार सिंह ने किया।</p>
+            </div>
+        </div>
+
+        <div class="carousel-item" style="background-image: url('/Images/SliderImages/SliderRSAY_2.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 style="color:black;">राष्ट्रीय समान अधिकार यात्रा, बिहार का पहली बैठक मोतीहारी के पिपरा में जनसभा को संबोधित करते ई. रविन्द्र कुमार सिंह</h3>
+                <p style="color:black;">राष्ट्रीय समान अधिकार यात्रा के पहले चरण के जनसंपर्क यात्रा में पिपरा में सिंह ढाबा पर एक जनसभा का आयोजन किया गया। इस आयोजन से ही यात्रा का प्रारंभ और संदेश देते हुए ई. रविन्द्र कुमार सिंह।</p>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('/Images/SliderImages/SliderRSAY_3.jpg');position:center;">
+            <div class="carousel-caption d-none d-md-block text-primary">
+                <h4>राष्ट्रीय समान अधिकार यात्रा , बिहार का गाँधी स्मारक पर माल्यार्पण करते हुए ई. रविन्द्र कुमार सिंह</h4>
+                <p>राष्ट्रीय समान अधिकार यात्रा के पहले दिन गाँधी स्मारक पर गाँधीजी को राष्ट्रीय समान अधिकार के राष्ट्रीय संयोजक ई. रविन्द्र कुमार सिंह द्वारा माल्यार्पण कर आर्शीवाद प्राप्त करते हुए।</p>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('/Images/SliderImages/SliderRSAY_4.jpg')">
+            <div class="carousel-caption d-none d-md-block">
+                <h3>राष्ट्रीय समान अधिकार यात्रा, बिहार में मोतिहारी के गाँधी स्मारक पर अपने सहयोगियों के साथ ई. रविन्द्र कुमार सिंह</h3>
+                <p>राष्ट्रीय समान अधिकार यात्रा के दौड़ान गाँधी स्मारक पर अपने संपूर्ण राज्यों से आये सहयोगियों के साथ एक फोटोशूट।</p>
+            </div>
+        </div>*@
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<section data-scroll>
+    <h1 data-scroll>राष्ट्रीय समान अधिकार यात्रा : एक परिचय</h1>
+    <p data-scroll class="text-justify">
+        भारत एक सभ्यता युक्त राष्ट्र के रूप में अपने आप को संयोजित किया हैं। यह भारत का अपना गौरवशाली परम्परा रही है कि वह मानवता के साथ-साथ प्रकृति के सभी दैविक उत्पत्तियों से प्यार किया हैं। साथ ही साथ भारत में जन्म लेने वाले मनुष्यों को एक संस्कृति परम्परागत तरीकों से पीढ़ी दर पीढ़ी बढ़ाने की बौद्धिक क्षमता प्रदान किया। जहाँ सत्य ही जीवन हैं और सनातन एक परम्परा के स्वरूप में जीवन की कला प्रदान किया। संपूर्ण सृष्टि में ईश्वरीय शक्ति का समावेश भारतीय भू-भाग से ही प्रवृष्ठ हुई। हमें यह समझने की आवश्यकता है कि हमें किस स्वरूप में भारत का नया निर्माण करना है। निर्माण की परिभाषा हमें तय करना होगा, क्योंकि वर्त्तमान राजनीतिक क्षमता से भारत का विकास संभव नहीं दिख रहा हैं। भारत की आजादी के बाद से ही अंग्रेजी परम्पराओं को आगे बढ़ाने में कोई कसर नहीं छोड़ी गई। हमारे कानूनविद्वों द्वारा भारत को बिना समझे ही संविधान बनाया गया। संपूर्ण विश्व के संविधान में से कुछ-कुछ लेकर उस भारत का संविधान बनाया गया, जो खुद लोकतंत्र की स्थापना का जीता जागता उदाहरण रहा हैं। लोकतंत्र के लिए सिर्फ और सिर्फ भारत उत्तरदायी है और इस राष्ट्र के निर्माण में विश्व के मापदंड को फाँलों किया गया। यह दुखद् है कि अगर हमारे संविधानविद्वों को यह समझ नहीं आई तो उन्हें वैशाली आकर समय देना चाहिए था।
+    </p>
+    <p style="text-align:right;"><a class="btn btn-warning" href="~/Home/एक_परिचय">आगे पढ़े &raquo;</a></p>
+</section>
+<section data-scroll>
+    <h1 data-scroll>यात्रा : एक परिचय</h1>
+    <p data-scroll class="text-justify">राष्ट्रीय समान अधिकार यात्रा, बिहार से भारत की सामाजिक व राजनैतिक परिवर्त्तन की एक बहुत महत्त्वपूर्ण नींव रखी गई हैं। आने वाले कुछ चंद महिनों में ही बिहार में एक अलग प्रकार की राजनैतिक व सामाजिक बदलाव की नींव के साथ-साथ बदलाव नजर आएगी। राष्ट्रीय समान अधिकार का मुख्य उद्देश्य बिहार से एकबार फिर लोकतंत्र की मजबूती का प्रयास और अंतिम व्यक्ति को भारतीयता पर पूर्णरूपेण गर्व हो।</p>
+    <p style="text-align:right;"><a class="btn btn-warning" href="~/Home/यात्रा">आगे पढ़े &raquo;</a></p>
+</section>
+<section data-scroll>
+    <h1 data-scroll>भारतीय सोच़ और राजनैतिक विचारधाराओं</h1>
+    <p data-scroll class="text-justify">राष्ट्रीय समान अधिकार यात्रा एक भारतीय सोच़ और राजनैतिक विचारधाराओं का समायोजित लक्ष्य है।राष्ट्रीय समान अधिकार का मिशन है कि भारत में  प्रत्येक नागरिकों को नागरिकीय सम्मान मिले, ताकि व व्यक्ति भारत को विकसित करने की जिम्मेदारी खुद की भी समझे। इसके लिए उन्हें भारत सरकार द्वारा नियंत्रित और मार्गदर्शन करते रहने की योजना हो। जिसे प्रत्येक भारतीयों तक 100% पहुँचाने की जिम्मेदारी सिर्फ़ और सिर्फ़ भारत सरकार की हो।</p>
+    <p style="text-align:right;"><a class="btn btn-warning" href="~/Home/लक्ष्य_और_उदेश्य">आगे पढ़े &raquo;</a></p>
+</section>
+<section data-scroll>
+    <h1 data-scroll>भारत में एक समान कानून व्यवस्था</h1>
+    <p data-scroll class="text-justify">राष्ट्रीय समान अधिकार का विजन है कि भारत में एक समान कानून व्यवस्था हो।भारत के प्रत्येक नागरिकों को समान शिक्षा प्राप्त हो।भारत के प्रत्येक नागरिकों को समान चिकित्सा प्राप्त हो।</p>
+    <p style="text-align:right;"><a class="btn btn-warning" href="~/Home/संविधान">आगे पढ़े &raquo;</a></p>
+</section>
+

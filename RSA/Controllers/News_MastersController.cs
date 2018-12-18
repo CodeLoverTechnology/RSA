@@ -89,8 +89,8 @@ namespace RSA.Controllers
             }
             if (!string.IsNullOrEmpty(Request.Files["Img5"].FileName))
             {
-                FullPathWithFileName4 = FolderPath + "\\" + Request.Files["Img5"].FileName;
-                FolderPathForImage4 = "\\" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.DayOfWeek + "\\" + Request.Files["Img5"].FileName;
+                FullPathWithFileName5 = FolderPath + "\\" + Request.Files["Img5"].FileName;
+                FolderPathForImage5 = "\\" + DateTime.Now.Year + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.DayOfWeek + "\\" + Request.Files["Img5"].FileName;
             }
             if (RSACommonFunctions.IsFolderExist(FolderPath))
             {
@@ -116,8 +116,8 @@ namespace RSA.Controllers
                 }
                 if (!string.IsNullOrEmpty(Request.Files["Img5"].FileName))
                 {
-                    Request.Files["Img5"].SaveAs(FullPathWithFileName4);
-                    t_News_Masters.Img5 = FolderPathForImage4;
+                    Request.Files["Img5"].SaveAs(FullPathWithFileName5);
+                    t_News_Masters.Img5 = FolderPathForImage5;
                 }
 
             }

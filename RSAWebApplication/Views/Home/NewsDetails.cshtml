@@ -1,0 +1,95 @@
+﻿@model RSAWebApplication.DBModels.T_News_Masters
+
+@{
+    ViewBag.Title = "News Details:"+ Model.NewsHeading;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row mt-5">
+    <div class="container-fluid mt-5">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h2>@Model.NewsHeading</h2>
+            </div>
+            <div class="card-body">
+                <section data-scroll>
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img1)" class="img-fluid" />
+                    <h4>@Model.SubHeading</h4>
+                </section>
+                <section data-scroll>
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img2)" class="img-fluid" />
+                    <p class="text-justify">@Model.Para1</p>
+                </section>
+
+                <section data-scroll>
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img3)" class="img-fluid" />
+                    <p class="text-justify">@Model.Para2</p>
+                </section>
+
+                <section data-scroll>
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img4)" class="img-fluid" />
+                    <p class="text-justify">@Model.Para3</p>
+                </section>
+
+                <section data-scroll>
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img5)" class="img-fluid" />
+                    <p class="text-justify">@Model.Para4</p>
+                </section>
+                <section data-scroll>
+                    <p class="text-justify">@Model.Para5</p>
+                    <p class="text-justify">@Model.Remarks</p>
+                </section>
+
+            </div>
+            <div class="card-footer bg-dark text-white">
+                <div>@Model.ModifiedDate</div>
+                <div>@Model.Location</div>
+                <div class="fa fa-eye">@Model.NoOfNewsViews</div>
+                <div class="float-right h2">
+                    <a href="javascript:void(0)" onclick="window.open('@("https://www.facebook.com/sharer/sharer.php?u=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-lg facebook">
+                        <span><i class="fa fa-facebook"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.open('@("https://twitter.com/share?url=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-lg twitter">
+                        <span><i class="fa fa-twitter"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.open('@("https://plus.google.com/share?url=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-lg google">
+                        <span><i class="fa fa-google"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.open('@("http://www.linkedin.com/shareArticle?mini=true&amp;url=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-sm linkedin">
+                        <span><i class="fa fa-linkedin"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.open('@("http://pinterest.com/pin/create/button/?url=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-sm pinterest">
+                        <span><i class="fa fa-pinterest"></i></span>
+                    </a>
+                    <a href='@("https://api.whatsapp.com/send?text=राष्ट्रीय समान अधिकार यात्रा के पहले चरण में मिला भारी समर्थन, सवर्णों द्वारा इतिहास रचा जाएगा - http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)' class="social-btn-sm whatsapp" target="_blank">
+                        <span> <i class="fa fa-whatsapp"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" onclick="window.open('@("http://www.tumblr.com/share/link?url=http://rashtriyasamanadhikar.com/Home/NewsDetails/"+Model.NewsID)', 'Share This Post', 'width=640,height=450');return false" class="social-btn-sm tumblr">
+                        <span> <i class="fa fa-tumblr"></i></span>
+                    </a>
+                    <a href="javascript:void(0)" data-toggle="modal" data-target="#modal-login" data-toggle-tool="tooltip" data-placement="top" title="" class="social-btn-sm add-reading-list" data-original-title="Add to Reading List">
+                        <span><i class="fa fa-star"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        @*<style>
+            #SocialSite span {
+
+                list-style: none;
+                padding: 9px;
+                transition: .6s;
+                color: white;
+                position: relative;
+                font-size: 16px;
+            }
+
+
+                #SocialSite span i:hover {
+                    transform: rotate(360deg) scale(1.15);
+                    transition: 1s;
+                }
+        </style>*@
+
+    </div>
+</div>

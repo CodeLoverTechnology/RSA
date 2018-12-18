@@ -1,9 +1,9 @@
-﻿
+﻿@model IEnumerable<RSA.DBModels.T_News_Masters>
 @{
     ViewBag.Title = "यात्रा : एक परिचय";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="mt-5">
+<div class="row mt-5 pt-5">
     <h2 class="h2 text-right">यात्रा : एक परिचय </h2>
     <hr />
     <div class="bg-info shadow m-2">
@@ -11,6 +11,28 @@
             <p>राष्ट्रीय समान अधिकार यात्रा, बिहार से भारत की सामाजिक व राजनैतिक परिवर्त्तन की एक बहुत महत्त्वपूर्ण नींव रखी गई हैं। आने वाले कुछ चंद महिनों में ही बिहार में एक अलग प्रकार की राजनैतिक व सामाजिक बदलाव की नींव के साथ-साथ बदलाव नजर आएगी। राष्ट्रीय समान अधिकार का मुख्य उद्देश्य बिहार से एकबार फिर लोकतंत्र की मजबूती का प्रयास और अंतिम व्यक्ति को भारतीयता पर पूर्णरूपेण गर्व हो।</p>
         </div>
     </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        @foreach (var s in Model)
+        {
+        <a href="~/Home/NewsDetails/@s.NewsID" target="_blank">
+            <div class="col-4 card shadow">
+                <div class="card-header h4 text-white bg-info">
+                    @s.NewsHeading
+                </div>
+                <div class="card-body">
+                    <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+s.Img1)" class="img-fluid" />
+                </div>
+                <div class="card-footer bg-dark text-white">
+                    <div class="text-left">@s.ModifiedDate</div>
+                    <div class="text-center">@s.Location</div>
+                    <div class="text-right">@s.NoOfNewsViews</div>
+                </div>
+            </div>
+        </a>
+        }
+    </div>
+    <div class="clearfix"></div>
     <div class="bg-dark  shadow m-2" style="color:deepskyblue;">
         <div class="p-5">
             <p>

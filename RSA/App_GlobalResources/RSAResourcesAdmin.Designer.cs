@@ -79,6 +79,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /News.
+        /// </summary>
+        internal static string ShowNewsImagesPath {
+            get {
+                return ResourceManager.GetString("ShowNewsImagesPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RSAadmin@rsa.com.
         /// </summary>
         internal static string SupUser {

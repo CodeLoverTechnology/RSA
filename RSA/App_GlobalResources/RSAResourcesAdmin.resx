@@ -123,6 +123,9 @@
   <data name="Pwd" xml:space="preserve">
     <value>Rsa@123</value>
   </data>
+  <data name="ShowNewsImagesPath" xml:space="preserve">
+    <value>/News</value>
+  </data>
   <data name="SupUser" xml:space="preserve">
     <value>RSAadmin@rsa.com</value>
     <comment>Dummy Email ID</comment>

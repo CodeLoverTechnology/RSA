@@ -1,0 +1,37 @@
+﻿@model RSA.DBModels.T_News_Masters
+
+@{
+    ViewBag.Title = "News Details:"+ Model.NewsHeading;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row mt-5">
+    <div class="container-fluid mt-5">
+        <h2 class="w-100">News Details : @Model.NewsHeading <span class="h4 text-right">@Model.M_NewsSubCategoryMasters.SubCategory</span></h2>
+        
+
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h2>@Model.NewsHeading</h2>
+            </div>
+            <div class="card-body">
+                <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img1)" class="img-fluid" />
+                <h4>@Model.SubHeading</h4>
+                <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img2)" class="img-fluid" />
+                <p class="text-justify">@Model.Para1</p>
+                <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img3)" class="img-fluid" />
+                <p class="text-justify">@Model.Para2</p>
+                <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img4)" class="img-fluid" />
+                <p class="text-justify">@Model.Para3</p>
+                <img src="@(Resources.RSAResourcesAdmin.ShowNewsImagesPath+Model.Img5)" class="img-fluid" />
+                <p class="text-justify">@Model.Para4</p>
+                <p class="text-justify">@Model.Para5</p>
+                <p class="text-justify">@Model.Remarks</p>
+            </div>
+            <div class="card-footer bg-dark text-white">
+                <div>@Model.ModifiedDate</div>
+                <div>@Model.Location</div>
+                <div class="fa fa-eye-slash">@Model.NoOfNewsViews</div>
+            </div>
+        </div>
+    </div>
+</div>
