@@ -13,7 +13,7 @@ namespace RSAWebApplication.Controllers
         public ActionResult Index()
         {
             IList<M_BannerMaster> ObjM_BannerMaster = new List<M_BannerMaster>();
-            var BannerResult = (from s in db.M_BannerMaster.OrderBy(x => x.BannerSequence) select new {s.BannerHeader, BannerImagesPath = s.BannerImagesPath.Replace("\\","/"),s.BannerText }).Take(5);
+            var BannerResult = (from s in db.M_BannerMaster.OrderByDescending(x => x.ModifiedDate) select new {s.BannerHeader, s.BannerImagesPath,s.BannerText }).Take(5);
             foreach(var bannerdetails in BannerResult)
             {
                 ObjM_BannerMaster.Add(new M_BannerMaster() {
