@@ -1,7 +1,9 @@
 ﻿using RSAWebApplication.DBModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,6 +76,12 @@ namespace RSAWebApplication.Controllers
             return View(t_News_Masters);
         }
 
+        public async Task<ActionResult> ShowNews()
+        {
+            return View(await db.M_DailyNawsMaster.ToListAsync());
+        }
+        
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -82,6 +90,8 @@ namespace RSAWebApplication.Controllers
             // ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+
 
         //
         // POST: /Account/Login

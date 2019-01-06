@@ -35,5 +35,6 @@ namespace RSAWebApplication.DBModels
         public virtual DbSet<M_RSAMasters> M_RSAMasters { get; set; }
         public virtual DbSet<T_News_Masters> T_News_Masters { get; set; }
         public virtual DbSet<M_BannerMaster> M_BannerMaster { get; set; }
+        public virtual DbSet<M_DailyNawsMaster> M_DailyNawsMaster { get; set; }
     }
 }

@@ -21,6 +21,7 @@
         <AssociationConnector Association="RSADBModel.FK_T_News_Masters_M_RSAMasters" ManuallyRouted="false" />
         <AssociationConnector Association="RSADBModel.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="RSADBModel.M_BannerMaster" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="RSADBModel.M_DailyNawsMaster" Width="1.5" PointX="7.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

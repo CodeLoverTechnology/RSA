@@ -82,6 +82,20 @@
           <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="M_DailyNawsMaster">
+          <Key>
+            <PropertyRef Name="DailyNewsID" />
+          </Key>
+          <Property Name="DailyNewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="M_NewsCategoryMaster">
           <Key>
             <PropertyRef Name="NewsCategoryID" />
@@ -253,6 +267,7 @@
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_BannerMaster" EntityType="Self.M_BannerMaster" Schema="RSAAdmin" store:Type="Tables" />
+          <EntitySet Name="M_DailyNawsMaster" EntityType="Self.M_DailyNawsMaster" Schema="RSAAdmin" store:Type="Tables" />
           <EntitySet Name="M_NewsCategoryMaster" EntityType="Self.M_NewsCategoryMaster" Schema="RSAAdmin" store:Type="Tables" />
           <EntitySet Name="M_NewsSubCategoryMasters" EntityType="Self.M_NewsSubCategoryMasters" Schema="RSAAdmin" store:Type="Tables" />
           <EntitySet Name="M_RSAMasters" EntityType="Self.M_RSAMasters" Schema="RSAAdmin" store:Type="Tables" />
@@ -529,6 +544,7 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
           <EntitySet Name="M_BannerMaster" EntityType="RSADBModel.M_BannerMaster" />
+          <EntitySet Name="M_DailyNawsMaster" EntityType="RSADBModel.M_DailyNawsMaster" />
         </EntityContainer>
         <EntityType Name="M_BannerMaster">
           <Key>
@@ -543,6 +559,20 @@
           <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="M_DailyNawsMaster">
+          <Key>
+            <PropertyRef Name="DailyNewsID" />
+          </Key>
+          <Property Name="DailyNewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
@@ -704,6 +734,21 @@
                 <ScalarProperty Name="BannerText" ColumnName="BannerText" />
                 <ScalarProperty Name="BannerHeader" ColumnName="BannerHeader" />
                 <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_DailyNawsMaster">
+            <EntityTypeMapping TypeName="RSADBModel.M_DailyNawsMaster">
+              <MappingFragment StoreEntitySet="M_DailyNawsMaster">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DailyNewsID" ColumnName="DailyNewsID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

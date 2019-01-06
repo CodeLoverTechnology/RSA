@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RSAWebApplication.DBModels.M_DailyNawsMaster>
+
+@{
+    ViewBag.Title = "ShowNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row  m-5 p-5">
+    <h2>Daily News </h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@(Resources.RSAResourcesAdmin.ShowBannerImagesPath + Html.DisplayFor(modelItem => item.FileName))" target="_blank">  @Html.DisplayFor(modelItem => item.Title)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

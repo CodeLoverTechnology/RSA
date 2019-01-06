@@ -212,6 +212,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BannerMasterController.cs" />
+    <Compile Include="Controllers\DailyNawsMasterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\M_NewsCategoryMasterController.cs" />
     <Compile Include="Controllers\M_NewsSubCategoryMastersController.cs" />
@@ -238,6 +239,9 @@
       <DependentUpon>RSADbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModels\M_BannerMaster.cs">
+      <DependentUpon>RSADbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModels\M_DailyNawsMaster.cs">
       <DependentUpon>RSADbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModels\M_NewsCategoryMaster.cs">
@@ -483,6 +487,12 @@
     <Content Include="Views\BannerMaster\Details.cshtml" />
     <Content Include="Views\BannerMaster\Edit.cshtml" />
     <Content Include="Views\BannerMaster\Index.cshtml" />
+    <Content Include="Views\DailyNawsMaster\Create.cshtml" />
+    <Content Include="Views\DailyNawsMaster\Delete.cshtml" />
+    <Content Include="Views\DailyNawsMaster\Details.cshtml" />
+    <Content Include="Views\DailyNawsMaster\Edit.cshtml" />
+    <Content Include="Views\DailyNawsMaster\Index.cshtml" />
+    <Content Include="Views\Home\ShowNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
